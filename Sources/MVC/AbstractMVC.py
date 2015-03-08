@@ -2,7 +2,7 @@ __author__ = 'Daniel'
 
 from abc import abstractmethod, ABCMeta
 
-class IComputeEvents(object, metaclass = ABCMeta):
+class IComputeEvents(metaclass = ABCMeta):
     """
     Ist das Interface fuer die Controller-Klasse
     """
