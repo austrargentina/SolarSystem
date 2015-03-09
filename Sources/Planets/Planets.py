@@ -31,6 +31,6 @@ class Moon(ICenterObject):
     """
     Mond ist Objekt, dass sich um eigene Achse dreht, um einen Planeten und um die Sonne
     """
-
+        
     def drawObject(self):
         pass

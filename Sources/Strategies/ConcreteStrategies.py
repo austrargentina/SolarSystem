@@ -38,7 +38,7 @@ class WithAnimation(IMovementStrategy):
     """
 
     def implementMovement(self):
-        pass
+        glRotatef(10,1,0,0)
 
 
 
