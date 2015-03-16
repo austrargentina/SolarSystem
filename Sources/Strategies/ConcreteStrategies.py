@@ -49,20 +49,27 @@ class NoAnimation(IMovementStrategy):
     Implementiert die Klasse IMovementStrategy
     Bewegungsstrategie: Keine Bewegung, nur Stillstand
     """
+    model = None
+
+    def __init__(self, model):
+        self.model = model
 
     def implementMovement(self):
-        pass
+        self.model.geschw = 0
 
 class WithAnimation(IMovementStrategy):
     """
     Implementiert die Klasse IMovementStrategy
     Bewegungsstrategie: Planeten drehen sich um Sonne, Monde drehen sich um Planeten
     """
+    model = None
+
+    def __init__(self, model):
+        self.model = model
 
     def implementMovement(self):
-        glRotatef(1,0,1,0)
-
-
+        if self.model.geschw == 0:
+            self.model.geschw = 1
 
 class NoTexture(IAppearenceStrategy):
     """

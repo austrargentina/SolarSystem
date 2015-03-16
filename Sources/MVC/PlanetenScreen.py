@@ -44,6 +44,11 @@ class ComputeEventsPlanets(IComputeEvents):
             self.doStrategies()         #Strategien anwenden
             self.screen.drawContent()   #Objekte zeichnen
 
+            if self.screenContent.zaehler < 3600:
+                self.screenContent.zaehler +=  1 * self.screenContent.geschw; #Für Rotation
+            elif self.screenContent.zaehler == 3600:
+                self.screenContent.zaehler = 0; #Für Rotation
+
             pygame.display.flip()
             pygame.time.wait(10)
 
@@ -53,7 +58,12 @@ class ComputeEventsPlanets(IComputeEvents):
 
         :return: Nichts
         """
-        #if event.key == pygame.K_LEFT:
+        if event.key == pygame.K_LEFT:
+            self.screenContent.geschw -= 1
+            print(self.screenContent.geschw)
+        elif event.key == pygame.K_RIGHT:
+            self.screenContent.geschw += 1
+            print(self.screenContent.geschw)
 
 
     def computeMouseEvents(self, event):
@@ -101,10 +111,10 @@ class DrawScreenPlanets(IDrawScreen):
         pygame.display.set_mode(display, DOUBLEBUF|OPENGL)
 
         #Perspektive aendern
-        gluPerspective(45, (display[0]/display[1]), 0.1, 50.0)
+        gluPerspective(45, (display[0]/display[1]), 0.1, 200.0)
 
         #Ursprung verschieben
-        glTranslatef(0.0,0.0,-5)
+        glTranslatef(0.0,0.0,-self.screenContent.kameraEntfernung)
 
     def drawButtons(self):
         pass
@@ -126,6 +136,12 @@ class ScreenPlanets(IScreen):
     camera = None       #Camera-Strategie
 
     objects = []        #Liste, die alle Objekte enthält
+    zaehler = 0         #Zeahler für die Rotation
+    geschw = 1          #Geschwindigkeit der Rotation
+
+    unterteilungen = 50 #Anzal der Unterteilungen (für die Spheres)
+
+    kameraEntfernung = 100  #Entfrenung der Anfangskamera
 
     def __init__(self):
         """
@@ -135,12 +151,15 @@ class ScreenPlanets(IScreen):
 
         #Definieren der Standard-Strategien
         self.lighting = NoLight()
-        self.movement = NoAnimation()
+        self.movement = NoAnimation(self)
         self.appearence =  NoTexture()
         self.camera = CamOben()
 
-        self.objects.append(Sun(1)) #hinzufuegen der Sonne
-        self.objects.append(Cube())
+        sonne1 = Sun(self, 10)
+        self.objects.append(sonne1) #hinzufuegen der Sonne
+        planet1 = Planet(self,2.5,sonne1,0.5,20)
+        planet2 = Planet(self,1,sonne1,1,30)
+        planet3 = Planet(self,5,sonne1,0.1,50)
 
     def getObjects(self):
         """
@@ -156,11 +175,11 @@ class ScreenPlanets(IScreen):
         #Falls Movement derzeit NoAnimation-Strategie implementiert
         if isinstance(self. movement, NoAnimation):
             #Auf WithAnimation-Strategie aendern
-            self.movement = WithAnimation()
+            self.movement = WithAnimation(self)
         #Falls WithAnimation-Strategie implementiert
         elif isinstance(self.movement, WithAnimation):
             #Auf NoAnimation-Strategie aendern
-            self.movement = NoAnimation()
+            self.movement = NoAnimation(self)
 
     def changeAppearence(self):
         pass
