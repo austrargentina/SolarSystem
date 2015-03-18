@@ -16,7 +16,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/SolarSystem$AbstractStrategies.coverage" NAME="AbstractStrategies Coverage Results" MODIFIED="1425837874142" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Sources/Strategies" />
     <SUITE FILE_PATH="coverage/SolarSystem$ConcreteStrategies.coverage" NAME="ConcreteStrategies Coverage Results" MODIFIED="1425837882901" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Sources/Strategies" />
-    <SUITE FILE_PATH="coverage/SolarSystem$PlanetenScreen.coverage" NAME="PlanetenScreen Coverage Results" MODIFIED="1426514680524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Sources/MVC" />
+    <SUITE FILE_PATH="coverage/SolarSystem$PlanetenScreen.coverage" NAME="PlanetenScreen Coverage Results" MODIFIED="1426705661043" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Sources/MVC" />
     <SUITE FILE_PATH="coverage/SolarSystem$TestPython.coverage" NAME="TestPython Coverage Results" MODIFIED="1425899993981" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Sources/MVC" />
     <SUITE FILE_PATH="coverage/SolarSystem$AbstractMVC.coverage" NAME="AbstractMVC Coverage Results" MODIFIED="1425840695058" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Sources/MVC" />
   </component>
@@ -35,8 +35,8 @@
       <file leaf-file-name="ConcreteStrategies.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Sources/Strategies/ConcreteStrategies.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="867" max-vertical-offset="1972">
-              <caret line="71" column="12" selection-start-line="71" selection-start-column="12" selection-end-line="71" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="952" max-vertical-offset="2023">
+              <caret line="65" column="21" selection-start-line="65" selection-start-column="21" selection-end-line="65" selection-end-column="21" />
               <folding>
                 <element signature="e#23#66#0" expanded="true" />
               </folding>
@@ -47,8 +47,8 @@
       <file leaf-file-name="Planets.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Sources/Planets/Planets.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="2312">
-              <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1581" max-vertical-offset="2006">
+              <caret line="100" column="0" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
               <folding>
                 <element signature="e#23#62#0" expanded="true" />
               </folding>
@@ -59,8 +59,8 @@
       <file leaf-file-name="PlanetenScreen.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Sources/MVC/PlanetenScreen.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.0598505" vertical-offset="585" max-vertical-offset="3315">
-              <caret line="83" column="38" selection-start-line="83" selection-start-column="37" selection-end-line="83" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.33915213" vertical-offset="2567" max-vertical-offset="3298">
+              <caret line="159" column="43" selection-start-line="159" selection-start-column="43" selection-end-line="159" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -82,9 +82,9 @@
         <option value="$PROJECT_DIR$/Sources/Planet/Planets.py" />
         <option value="$PROJECT_DIR$/Sources/MVC/AbstractMVC.py" />
         <option value="$PROJECT_DIR$/Sources/MVC/TestPython.py" />
+        <option value="$PROJECT_DIR$/Sources/Strategies/ConcreteStrategies.py" />
         <option value="$PROJECT_DIR$/Sources/Planets/Planets.py" />
         <option value="$PROJECT_DIR$/Sources/MVC/PlanetenScreen.py" />
-        <option value="$PROJECT_DIR$/Sources/Strategies/ConcreteStrategies.py" />
       </list>
     </option>
   </component>
@@ -120,7 +120,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -209,6 +208,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -588,11 +588,107 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/Sources/Planets/Planets.py</url>
+          <line>78</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/Sources/Planets/Planets.py</url>
+          <line>98</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Sources/Strategies/ConcreteStrategies.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="952" max-vertical-offset="2023">
+          <caret line="65" column="21" selection-start-line="65" selection-start-column="21" selection-end-line="65" selection-end-column="21" />
+          <folding>
+            <element signature="e#23#66#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Sources/Planets/Planets.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2006">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#23#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Sources/MVC/PlanetenScreen.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2404" max-vertical-offset="3281">
+          <caret line="159" column="35" selection-start-line="159" selection-start-column="28" selection-end-line="159" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Sources/Strategies/ConcreteStrategies.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="952" max-vertical-offset="2023">
+          <caret line="65" column="21" selection-start-line="65" selection-start-column="21" selection-end-line="65" selection-end-column="21" />
+          <folding>
+            <element signature="e#23#66#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Sources/Planets/Planets.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2006">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#23#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Sources/MVC/PlanetenScreen.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2404" max-vertical-offset="3281">
+          <caret line="159" column="35" selection-start-line="159" selection-start-column="28" selection-end-line="159" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Sources/Strategies/ConcreteStrategies.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="867" max-vertical-offset="1972">
+          <caret line="71" column="12" selection-start-line="71" selection-start-column="12" selection-end-line="71" selection-end-column="12" />
+          <folding>
+            <element signature="e#23#66#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Sources/Planets/Planets.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="2312">
+          <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
+          <folding>
+            <element signature="e#23#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Sources/MVC/PlanetenScreen.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3315">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Sources/Strategies/ConcreteStrategies.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="1853">
@@ -625,7 +721,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -679,14 +774,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="611">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Sources/Strategies/ConcreteStrategies.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="867" max-vertical-offset="1972">
-          <caret line="71" column="12" selection-start-line="71" selection-start-column="12" selection-end-line="71" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="952" max-vertical-offset="2023">
+          <caret line="65" column="21" selection-start-line="65" selection-start-column="21" selection-end-line="65" selection-end-column="21" />
           <folding>
             <element signature="e#23#66#0" expanded="true" />
           </folding>
@@ -695,8 +789,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Sources/Planets/Planets.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="2312">
-          <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1581" max-vertical-offset="2006">
+          <caret line="100" column="0" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
           <folding>
             <element signature="e#23#62#0" expanded="true" />
           </folding>
@@ -705,8 +799,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Sources/MVC/PlanetenScreen.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.0598505" vertical-offset="585" max-vertical-offset="3315">
-          <caret line="83" column="38" selection-start-line="83" selection-start-column="37" selection-end-line="83" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.33915213" vertical-offset="2567" max-vertical-offset="3298">
+          <caret line="159" column="43" selection-start-line="159" selection-start-column="43" selection-end-line="159" selection-end-column="43" />
           <folding />
         </state>
       </provider>

@@ -63,13 +63,16 @@ class WithAnimation(IMovementStrategy):
     Bewegungsstrategie: Planeten drehen sich um Sonne, Monde drehen sich um Planeten
     """
     model = None
+    aufgerufen = None
 
     def __init__(self, model):
         self.model = model
+        self.aufgerufen = False
 
     def implementMovement(self):
-        if self.model.geschw == 0:
+        if self.aufgerufen is False:
             self.model.geschw = 1
+            self.aufgerufen = True
 
 class NoTexture(IAppearenceStrategy):
     """

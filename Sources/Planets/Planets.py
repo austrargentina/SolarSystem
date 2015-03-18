@@ -55,6 +55,8 @@ class Planet(ICenterObject):
     """
     Planet ist Objekt, dass sich um eigen Achse dreht und um Sonne dreht
     """
+    dependentObjects = []
+
     model = None
     radius = 0
     rotation = 0
@@ -73,8 +75,14 @@ class Planet(ICenterObject):
         sphere = gluNewQuadric()
         gluSphere(sphere,self.radius,self.model.unterteilungen,self.model.unterteilungen)
 
+        #Fuer jeden abhängigen Planeten
+        for object in self.dependentObjects:
+             glPushMatrix()
+             object.drawObject()
+             glPopMatrix()
+
     def addDependentObject(self, object):
-        pass
+        self.dependentObjects.append(object) #hinzufügen eines abhängigen Objekts
 
 
 class Moon(ICenterObject):
@@ -82,50 +90,23 @@ class Moon(ICenterObject):
     Mond ist Objekt, dass sich um eigene Achse dreht, um einen Planeten und um die Sonne
     """
 
-    def __init__(self, planet):
-        pass
+    model = None
+    radius = 0
+    rotation = 0
+    distanceToPlanet = 0
+
+    def __init__(self, model, radius, planet, rotation, distanceToPlanet):
+        self.model = model
+        planet.addDependentObject(self) #hinzufügen des Mondes zum aktuellen Planeten
+        self.radius = radius
+        self.rotation = rotation
+        self.distanceToPlanet = distanceToPlanet
         
     def drawObject(self):
-        pass
+        glRotatef(self.rotation*self.model.zaehler,0,1,0) #drehen des urpsrungs
+        glTranslatef(self.distanceToPlanet,0.0,0.0) #Verschieben des ursprungs
+        sphere = gluNewQuadric()
+        gluSphere(sphere,self.radius,self.model.unterteilungen,self.model.unterteilungen)
 
-class Cube(ICenterObject):
-    """
-    Cube ist ein Testobjekt, dass nur aus Gitterlinien besteht
-    """
     def addDependentObject(self):
         pass
-
-    def drawObject(self):
-        vertices= (
-            (1, -1, -1),
-            (1, 1, -1),
-            (-1, 1, -1),
-            (-1, -1, -1),
-            (1, -1, 1),
-            (1, 1, 1),
-            (-1, -1, 1),
-            (-1, 1, 1)
-            )
-
-        edges = (
-            (0,1),
-            (0,3),
-            (0,4),
-            (2,1),
-            (2,3),
-            (2,7),
-            (6,3),
-            (6,4),
-            (6,7),
-            (5,1),
-            (5,4),
-            (5,7)
-            )
-
-        glBegin(GL_LINES)
-
-        for edge in edges:
-            for vertex in edge:
-                glVertex3fv(vertices[vertex])
-
-        glEnd()

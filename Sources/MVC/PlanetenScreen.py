@@ -44,10 +44,7 @@ class ComputeEventsPlanets(IComputeEvents):
             self.doStrategies()         #Strategien anwenden
             self.screen.drawContent()   #Objekte zeichnen
 
-            if self.screenContent.zaehler < 3600:
-                self.screenContent.zaehler +=  1 * self.screenContent.geschw; #Für Rotation
-            elif self.screenContent.zaehler == 3600:
-                self.screenContent.zaehler = 0; #Für Rotation
+            self.screenContent.zaehler +=  1 * self.screenContent.geschw; #Für Rotation
 
             pygame.display.flip()
             pygame.time.wait(10)
@@ -160,6 +157,8 @@ class ScreenPlanets(IScreen):
         planet1 = Planet(self,2.5,sonne1,0.5,20)
         planet2 = Planet(self,1,sonne1,1,30)
         planet3 = Planet(self,5,sonne1,0.1,50)
+        #mond1 = Moon(self,5,planet2,0.5,3)
+        #mond2 = Moon(self,4, planet1, 0.5,4)
 
     def getObjects(self):
         """
