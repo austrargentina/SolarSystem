@@ -59,10 +59,8 @@ class ComputeEventsPlanets(IComputeEvents):
         """
         if event.key == pygame.K_LEFT:
             self.screenContent.geschw -= 1
-            print(self.screenContent.geschw)
         elif event.key == pygame.K_RIGHT:
             self.screenContent.geschw += 1
-            print(self.screenContent.geschw)
         elif event.key == pygame.K_c:
             self.screenContent.changeCamera()
 
