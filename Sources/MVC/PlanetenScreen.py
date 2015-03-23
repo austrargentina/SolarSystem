@@ -28,8 +28,6 @@ class ComputeEventsPlanets(IComputeEvents):
         #Fenster offnen
         self.screenContent = ScreenPlanets()
         self.screen = DrawScreenPlanets(self.screenContent)
-        #Ursprung drehen
-        glRotatef(20,1,0,0)
 
         while True:
             #Events abfragen
