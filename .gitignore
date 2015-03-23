@@ -43,9 +43,12 @@ Temporary Items
 .apdisk
 
 .idea/*
-
 ./.idea/
-
 .idea/
+
+.\idea\*
+.idea\*
+.\.idea\
+
 
 *.pyc
