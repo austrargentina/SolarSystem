@@ -78,9 +78,13 @@ class ComputeEventsPlanets(IComputeEvents):
             elif event.button == 3:   #Falls rechts Maustaste gedrückt wurde
                 self.screenContent.changeLighting()
             elif event.button == 4: #Falls Maus-Rad nach vorne gescrollt wird
-                glTranslatef(0.0,0.0,100)
+                if self.screenContent.fov >= 10:
+                    self.screenContent.fov -= 5
+                    self.screen.setPerspective()
             elif event.button == 5: #Falls Maus-Rad nach hinten gescrollt wird
-                glTranslatef(0.0,0.0,-100)
+                if self.screenContent.fov <= 100:
+                    self.screenContent.fov += 5
+                    self.screen.setPerspective()
 
     def doStrategies(self):
         """
@@ -104,14 +108,10 @@ class DrawScreenPlanets(IDrawScreen):
         self.screenContent = screenContent
 
         #Displaygroesse einstellen
-        display = (800, 600)
-        pygame.display.set_mode(display, DOUBLEBUF|OPENGL)
+        self.display = (800, 600)
+        pygame.display.set_mode(self.display, DOUBLEBUF|OPENGL)
 
-        #Perspektive aendern
-        gluPerspective(45, (display[0]/display[1]), 0.1, 10000.0)
-
-        #Ursprung verschieben
-        glTranslatef(0.0,-5,-self.screenContent.kameraEntfernung)
+        self.setPerspective()
 
     def drawButtons(self):
         pass
@@ -121,6 +121,14 @@ class DrawScreenPlanets(IDrawScreen):
         for object in self.screenContent.getObjects():
             #Zeichne Objekt
             object.drawObject()
+
+    def setPerspective(self):
+        glLoadIdentity()
+        #Perspektive aendern
+        gluPerspective(self.screenContent.fov, (self.display[0]/self.display[1]), 0.1, self.screenContent.maxSichtbar)
+
+        #Ursprung verschieben
+        glTranslatef(0.0,-5,-self.screenContent.kameraEntfernung)
 
 class ScreenPlanets(IScreen):
     """
@@ -138,9 +146,13 @@ class ScreenPlanets(IScreen):
 
     unterteilungen = 50 #Anzal der Unterteilungen (für die Spheres)
 
-    kameraEntfernung = 200  #Entfrenung der Anfangskamera
+    kameraEntfernung = 5000  #Entfrenung der Anfangskamera
 
-    vergr = 1000
+    vergr = 1000    #vergrößerung der planeten
+
+    maxSichtbar = 100000 #distanz, die maximal sichtbar ist
+
+    fov = 45    #field of fiev für vergrößerung und verklinerung
 
     def __init__(self):
         """
