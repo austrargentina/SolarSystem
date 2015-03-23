@@ -30,11 +30,11 @@ class Sun(ICenterObject):
     """
     model = None
     radius = 0  #Radius der Kugel
-    dependentObjects = []
 
     def __init__(self, model, radius):
+        self.dependentObjects = []
         self.model = model
-        self.radius = radius #zuweisen des übergebenen radius
+        self.radius = radius * model.vergr/5 #zuweisen des übergebenen radius
 
     def drawObject(self):
          sphere = gluNewQuadric()
@@ -62,12 +62,12 @@ class Planet(ICenterObject):
     rotation = 0
     distanceToSun = 0
 
-    def __init__(self, model, radius, sun, rotation, distanceToSun):
+    def __init__(self, model, sun, distanceToSun, radius, rotation):
         self.model = model
         sun.addDependentObject(self) #hinzufügen des Plaentens zur aktuellen Sonne
-        self.radius = radius
+        self.radius = radius * model.vergr
         self.rotation = rotation
-        self.distanceToSun = distanceToSun
+        self.distanceToSun = sun.radius + distanceToSun #* model.vergr
 
     def drawObject(self):
         glRotatef(self.rotation*self.model.zaehler,0,1,0) #drehen des urpsrungs
@@ -95,7 +95,7 @@ class Moon(ICenterObject):
     rotation = 0
     distanceToPlanet = 0
 
-    def __init__(self, model, radius, planet, rotation, distanceToPlanet):
+    def __init__(self, model, planet, distanceToPlanet, radius, rotation):
         self.model = model
         planet.addDependentObject(self) #hinzufügen des Mondes zum aktuellen Planeten
         self.radius = radius

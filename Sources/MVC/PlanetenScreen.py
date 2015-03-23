@@ -47,7 +47,7 @@ class ComputeEventsPlanets(IComputeEvents):
             self.screenContent.zaehler +=  1 * self.screenContent.geschw; #Für Rotation
 
             pygame.display.flip()
-            pygame.time.wait(10)
+            pygame.time.wait(20)
 
     def computeKeyboardEvents(self, event):
         """
@@ -78,9 +78,9 @@ class ComputeEventsPlanets(IComputeEvents):
             elif event.button == 3:   #Falls rechts Maustaste gedrückt wurde
                 self.screenContent.changeLighting()
             elif event.button == 4: #Falls Maus-Rad nach vorne gescrollt wird
-                glTranslatef(0.0,0.0,1)
+                glTranslatef(0.0,0.0,100)
             elif event.button == 5: #Falls Maus-Rad nach hinten gescrollt wird
-                glTranslatef(0.0,0.0,-1)
+                glTranslatef(0.0,0.0,-100)
 
     def doStrategies(self):
         """
@@ -108,10 +108,10 @@ class DrawScreenPlanets(IDrawScreen):
         pygame.display.set_mode(display, DOUBLEBUF|OPENGL)
 
         #Perspektive aendern
-        gluPerspective(45, (display[0]/display[1]), 0.1, 200.0)
+        gluPerspective(45, (display[0]/display[1]), 0.1, 10000.0)
 
         #Ursprung verschieben
-        glTranslatef(0.0,0.0,-self.screenContent.kameraEntfernung)
+        glTranslatef(0.0,-5,-self.screenContent.kameraEntfernung)
 
     def drawButtons(self):
         pass
@@ -138,7 +138,9 @@ class ScreenPlanets(IScreen):
 
     unterteilungen = 50 #Anzal der Unterteilungen (für die Spheres)
 
-    kameraEntfernung = 100  #Entfrenung der Anfangskamera
+    kameraEntfernung = 200  #Entfrenung der Anfangskamera
+
+    vergr = 1000
 
     def __init__(self):
         """
@@ -152,13 +154,23 @@ class ScreenPlanets(IScreen):
         self.appearence =  NoTexture()
         self.camera = CamOben()
 
-        sonne1 = Sun(self, 10)
-        self.objects.append(sonne1) #hinzufuegen der Sonne
-        planet1 = Planet(self,2.5,sonne1,0.5,20)
-        planet2 = Planet(self,1,sonne1,1,30)
-        planet3 = Planet(self,5,sonne1,0.1,50)
-        #mond1 = Moon(self,5,planet2,0.5,3)
-        #mond2 = Moon(self,4, planet1, 0.5,4)
+        sonne = Sun(self, 1)
+        self.objects.append(sonne) #hinzufuegen der Sonne
+        merkur = Planet(self,sonne,42,0.0035,0.1) #41; 0.0035
+        venus = Planet(self,sonne,78,0.0086, 0.1) #77; 0.0086
+        erde = Planet(self,sonne,108,0.0091, 0.1) #107; 0.0091
+        mars = Planet(self,sonne,164,0.0049, 0.1) #163; 0.0049
+        jupiter = Planet(self,sonne,557,0.102, 0.1) #556; 0.102
+        saturn = Planet(self,sonne,1020,0.086, 0.1) #1019; 0.086
+        uranus = Planet(self,sonne,2052,0.037, 0.1) #2051; 0.037
+        neptun = Planet(self,sonne,3214,0.035, 0.1) #3213; 0.035
+        pluto = Planet(self,sonne,4220,0.0016, 0.1) #4219; 0.0016
+
+        #planet1 = Planet(self,sonne,10,1,0.1) #41; 0.0035
+
+
+        #mond1 = Moon(self,0.5,planet1,1,2)
+        #mond2 = Moon(self,0.5, planet2,1,2)
 
     def getObjects(self):
         """
