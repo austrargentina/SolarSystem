@@ -66,7 +66,7 @@ class Planet(ICenterObject):
         self.model = model
         sun.addDependentObject(self) #hinzufügen des Plaentens zur aktuellen Sonne
         self.radius = radius * model.vergr
-        self.rotation = rotation
+        self.rotation = 1/(rotation)
         self.distanceToSun = sun.radius + distanceToSun #* model.vergr
 
     def drawObject(self):

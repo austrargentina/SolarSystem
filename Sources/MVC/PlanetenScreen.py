@@ -167,15 +167,15 @@ class ScreenPlanets(IScreen):
 
         sonne = Sun(self, 1)
         self.objects.append(sonne) #hinzufuegen der Sonne
-        merkur = Planet(self,sonne,42,0.0035,0.1) #41; 0.0035
-        venus = Planet(self,sonne,78,0.0086, 0.1) #77; 0.0086
-        erde = Planet(self,sonne,108,0.0091, 0.1) #107; 0.0091
-        mars = Planet(self,sonne,164,0.0049, 0.1) #163; 0.0049
-        jupiter = Planet(self,sonne,557,0.102, 0.1) #556; 0.102
-        saturn = Planet(self,sonne,1020,0.086, 0.1) #1019; 0.086
-        uranus = Planet(self,sonne,2052,0.037, 0.1) #2051; 0.037
-        neptun = Planet(self,sonne,3214,0.035, 0.1) #3213; 0.035
-        pluto = Planet(self,sonne,4220,0.0016, 0.1) #4219; 0.0016
+        merkur = Planet(self,sonne,42,0.0035,88/365) #41; 0.0035
+        venus = Planet(self,sonne,78,0.0086, 225/365) #77; 0.0086
+        erde = Planet(self,sonne,108,0.0091, 1) #107; 0.0091
+        mars = Planet(self,sonne,164,0.0049, (321 + 365)/365) #163; 0.0049
+        jupiter = Planet(self,sonne,557,0.102, (321 + 365*11)/365) #556; 0.102
+        saturn = Planet(self,sonne,1020,0.086, (168 + 365*29)/365) #1019; 0.086
+        uranus = Planet(self,sonne,2052,0.037, (365*84)/365) #2051; 0.037
+        neptun = Planet(self,sonne,3214,0.035, (365*165)/365) #3213; 0.035
+        pluto = Planet(self,sonne,4220,0.0016, (365*247.68)/365) #4219; 0.0016
 
         #planet1 = Planet(self,sonne,10,1,0.1) #41; 0.0035
 

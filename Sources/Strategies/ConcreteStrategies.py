@@ -99,7 +99,7 @@ class CamOben(ICameraStrategy):
     """
 
     def implementCamera(self):
-        glRotatef(90,1,0,0) #drehen des urpsrungs
+        glRotatef(15,1,0,0) #drehen des urpsrungs
 
 class CamParallel(ICameraStrategy):
     """
