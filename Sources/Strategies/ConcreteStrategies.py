@@ -92,8 +92,6 @@ class WithTexture(IAppearenceStrategy):
     def implementAppearence(self):
         pass
 
-
-
 class CamOben(ICameraStrategy):
     """
     Implementiert die Klasse ICameraStrategy
@@ -101,7 +99,7 @@ class CamOben(ICameraStrategy):
     """
 
     def implementCamera(self):
-        pass
+        glRotatef(90,1,0,0) #drehen des urpsrungs
 
 class CamParallel(ICameraStrategy):
     """
@@ -110,4 +108,4 @@ class CamParallel(ICameraStrategy):
     """
 
     def implementCamera(self):
-        pass
+        glRotatef(0,1,0,0) #drehen des urpsrungs

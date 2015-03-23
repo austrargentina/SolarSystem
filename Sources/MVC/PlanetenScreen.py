@@ -41,8 +41,10 @@ class ComputeEventsPlanets(IComputeEvents):
 
             glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT) #clear frame !IMPORTANT!
 
+            glPushMatrix()              #Speichern der aktuellen mMatrix
             self.doStrategies()         #Strategien anwenden
             self.screen.drawContent()   #Objekte zeichnen
+            glPopMatrix()               #Wiederherstellen der aktuellen Matrix
 
             self.screenContent.zaehler +=  1 * self.screenContent.geschw; #Für Rotation
 
@@ -61,7 +63,8 @@ class ComputeEventsPlanets(IComputeEvents):
         elif event.key == pygame.K_RIGHT:
             self.screenContent.geschw += 1
             print(self.screenContent.geschw)
-
+        elif event.key == pygame.K_c:
+            self.screenContent.changeCamera()
 
     def computeMouseEvents(self, event):
         """
@@ -128,7 +131,7 @@ class DrawScreenPlanets(IDrawScreen):
         gluPerspective(self.screenContent.fov, (self.display[0]/self.display[1]), 0.1, self.screenContent.maxSichtbar)
 
         #Ursprung verschieben
-        glTranslatef(0.0,-5,-self.screenContent.kameraEntfernung)
+        glTranslatef(0.0,0,-self.screenContent.kameraEntfernung)
 
 class ScreenPlanets(IScreen):
     """
@@ -208,6 +211,13 @@ class ScreenPlanets(IScreen):
         pass
 
     def changeCamera(self):
-        pass
+        #Falls Camera derzeit auf Cam-Oben-Strategie
+        if isinstance(self.camera, CamOben):
+            #Auf WithAnimation-Strategie aendern
+            self.camera = CamParallel()
+        #Falls Camera derzeit auf Cam-Parallel-Strategie
+        elif isinstance(self.camera, CamParallel):
+            #Auf NoAnimation-Strategie aendern
+            self.camera = CamOben()
 
 app = ComputeEventsPlanets()
