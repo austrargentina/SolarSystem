@@ -216,4 +216,3 @@ class ScreenPlanets(IScreen):
             #Auf NoAnimation-Strategie aendern
             self.camera = CamOben()
 
-app = ComputeEventsPlanets()

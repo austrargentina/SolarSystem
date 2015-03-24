@@ -1,3 +1,5 @@
+from MVC.PlanetenScreen import ComputeEventsPlanets
+
 __author__ = 'Martin'
 
 #Import der relevanten Klassen fuer Pygame und PyOpenGL
@@ -24,12 +26,29 @@ class ComputeEventsStart(IComputeEvents):
         self.screenContent = ScreenStart()
         self.screen = DrawScreenStart(self.screenContent)
 
+        while True:
+            #Events abfragen
+            for event in pygame.event.get():
+                if event.type == pygame.KEYDOWN:
+                    self.computeKeyboardEvents(event)
+                else:
+                    self.computeMouseEvents(event)
 
-    def computeKeyboardEvents(self):
-        pass
+        glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT) #clear frame !IMPORTANT!
 
-    def computeMouseEvents(self):
-        pass
+        self.drawContent()
+
+        pygame.display.flip()
+
+    def computeKeyboardEvents(self,event):
+        if event.key == pygame.K_SPACE:
+            pygame.quit()
+            ComputeEventsPlanets()
+
+    def computeMouseEvents(self,event):
+        if event.type == pygame.QUIT: #Falls das Fenster geschlossen werden soll
+            pygame.quit()
+            quit()
 
 class DrawScreenStart(IDrawScreen):
 
@@ -40,6 +59,7 @@ class DrawScreenStart(IDrawScreen):
 
     #Model des MVCs, beinhaltet alle Objekte
     screenContent = None
+    bgd_image = None
 
     def __init__(self, screenContent):
         #Zuweisen des uebermittelten Models
@@ -47,13 +67,20 @@ class DrawScreenStart(IDrawScreen):
 
         #Displaygroesse einstellen
         display = (800, 600)
-        pygame.display.set_mode(display, DOUBLEBUF|OPENGL)
+        pygame.display.set_mode(display)
+
+        #Fenster Titel einstellen
+        pygame.display.set_caption("Solarsystem Menü")
+
+        #Hintergrundbild laden
+        self.bgd_image = pygame.image.load("../../Images/Sunrise-Earth-In-Space.jpg").convert()
 
     def drawButtons(self):
         pass
 
     def drawContent(self):
-        pass
+        self.screenContent.blit(self.bgd_image, [0, 0])
+
 
 
 
