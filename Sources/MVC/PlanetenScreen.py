@@ -110,6 +110,9 @@ class DrawScreenPlanets(IDrawScreen):
         self.display = (800, 600)
         pygame.display.set_mode(self.display, DOUBLEBUF|OPENGL)
 
+        #Fenster Titel einstellen
+        pygame.display.set_caption("Solarsystem Simulation")
+
         self.setPerspective()
 
     def drawButtons(self):
