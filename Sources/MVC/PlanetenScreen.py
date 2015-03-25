@@ -24,7 +24,7 @@ class ComputeEventsPlanets(IComputeEvents):
     def __init__(self):
 
         #Pygame initialisieren
-        pygame.init()
+        #pygame.init()
         #Fenster offnen
         self.screenContent = ScreenPlanets()
         self.screen = DrawScreenPlanets(self.screenContent)

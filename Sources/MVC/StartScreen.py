@@ -26,6 +26,8 @@ class ComputeEventsStart(IComputeEvents):
         self.screenContent = ScreenStart()
         self.screen = DrawScreenStart(self.screenContent)
 
+        self.screen.drawContent()
+
         while True:
             #Events abfragen
             for event in pygame.event.get():
@@ -33,12 +35,9 @@ class ComputeEventsStart(IComputeEvents):
                     self.computeKeyboardEvents(event)
                 else:
                     self.computeMouseEvents(event)
+            pygame.display.flip()
 
-        glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT) #clear frame !IMPORTANT!
 
-        self.drawContent()
-
-        pygame.display.flip()
 
     def computeKeyboardEvents(self,event):
         if event.key == pygame.K_SPACE:
@@ -60,6 +59,7 @@ class DrawScreenStart(IDrawScreen):
     #Model des MVCs, beinhaltet alle Objekte
     screenContent = None
     bgd_image = None
+    surface = None
 
     def __init__(self, screenContent):
         #Zuweisen des uebermittelten Models
@@ -79,7 +79,7 @@ class DrawScreenStart(IDrawScreen):
         pass
 
     def drawContent(self):
-        self.screenContent.blit(self.bgd_image, [0, 0])
+        pygame.Surface.blit(pygame.display.get_surface(),self.bgd_image, [0, 0])
 
 
 
