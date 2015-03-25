@@ -4,6 +4,7 @@ from abc import abstractmethod, ABCMeta
 
 from OpenGL.GL import *
 from OpenGL.GLU import *
+from pyglet.gl import *
 
 class ICenterObject(object, metaclass=ABCMeta):
     """
@@ -30,23 +31,30 @@ class Sun(ICenterObject):
     """
     model = None
     radius = 0  #Radius der Kugel
+    name = None
 
-    def __init__(self, model, radius):
+    def __init__(self,model, name, radius):
         self.dependentObjects = []
+        self.name = name
         self.model = model
         self.radius = radius * model.vergr/5 #zuweisen des übergebenen radius
 
     def drawObject(self):
-         sphere = gluNewQuadric()
-         #gluQuadricDrawStyle(self.sphere,GLU_LINE)
-         gluSphere(sphere,self.radius,self.model.unterteilungen,self.model.unterteilungen)
-         #glutWireSphere(2,100,20)
+        texture = self.model.textures[self.name]
+        glBindTexture(texture.target, texture.id)
 
-         #Fuer jeden abhängigen Planeten
-         for object in self.dependentObjects:
-             glPushMatrix()
-             object.drawObject()
-             glPopMatrix()
+        sphere = gluNewQuadric()
+
+        gluQuadricNormals(sphere,GLU_SMOOTH)
+        gluQuadricTexture(sphere,GL_TRUE)
+
+        gluSphere(sphere,self.radius,self.model.unterteilungen,self.model.unterteilungen)
+
+        #Fuer jeden abhängigen Planeten
+        for object in self.dependentObjects:
+            glPushMatrix()
+            object.drawObject()
+            glPopMatrix()
 
     def addDependentObject(self, object):
         self.dependentObjects.append(object) #hinzufügen eines abhängigen Objekts
@@ -57,12 +65,14 @@ class Planet(ICenterObject):
     """
     dependentObjects = []
 
+    name = None
     model = None
     radius = 0
     rotation = 0
     distanceToSun = 0
 
-    def __init__(self, model, sun, distanceToSun, radius, rotation):
+    def __init__(self, model, name, sun, distanceToSun, radius, rotation):
+        self.name = name
         self.model = model
         sun.addDependentObject(self) #hinzufügen des Plaentens zur aktuellen Sonne
         self.radius = radius * model.vergr
@@ -72,7 +82,9 @@ class Planet(ICenterObject):
     def drawObject(self):
         glRotatef(self.rotation*self.model.zaehler,0,1,0) #drehen des urpsrungs
         glTranslatef(self.distanceToSun,0.0,0.0) #Verschieben des ursprungs
+
         sphere = gluNewQuadric()
+
         gluSphere(sphere,self.radius,self.model.unterteilungen,self.model.unterteilungen)
 
         #Fuer jeden abhängigen Planeten
@@ -90,12 +102,14 @@ class Moon(ICenterObject):
     Mond ist Objekt, dass sich um eigene Achse dreht, um einen Planeten und um die Sonne
     """
 
+    name = None
     model = None
     radius = 0
     rotation = 0
     distanceToPlanet = 0
 
-    def __init__(self, model, planet, distanceToPlanet, radius, rotation):
+    def __init__(self, model, name, planet, distanceToPlanet, radius, rotation):
+        self.name = name
         self.model = model
         planet.addDependentObject(self) #hinzufügen des Mondes zum aktuellen Planeten
         self.radius = radius

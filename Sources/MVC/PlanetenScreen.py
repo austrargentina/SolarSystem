@@ -15,6 +15,10 @@ from pygame.locals import *
 from OpenGL.GL import *
 from OpenGL.GLU import *
 
+#Importieren der Library für die Texturen
+from pyglet import image
+from pyglet.gl import *
+
 
 class ComputeEventsPlanets(IComputeEvents):
 
@@ -143,6 +147,8 @@ class ScreenPlanets(IScreen):
     camera = None       #Camera-Strategie
 
     objects = []        #Liste, die alle Objekte enthält
+    textures = {}       #enthaelt die Texturen
+
     zaehler = 0         #Zeahler für die Rotation
     geschw = 1          #Geschwindigkeit der Rotation
 
@@ -168,20 +174,19 @@ class ScreenPlanets(IScreen):
         self.appearence =  NoTexture()
         self.camera = CamOben()
 
-        sonne = Sun(self, 1)
+        sonne = Sun(self,"sonne", 1)
         self.objects.append(sonne) #hinzufuegen der Sonne
-        merkur = Planet(self,sonne,42,0.0035,88/365) #41; 0.0035
-        venus = Planet(self,sonne,78,0.0086, 225/365) #77; 0.0086
-        erde = Planet(self,sonne,108,0.0091, 1) #107; 0.0091
-        mars = Planet(self,sonne,164,0.0049, (321 + 365)/365) #163; 0.0049
-        jupiter = Planet(self,sonne,557,0.102, (321 + 365*11)/365) #556; 0.102
-        saturn = Planet(self,sonne,1020,0.086, (168 + 365*29)/365) #1019; 0.086
-        uranus = Planet(self,sonne,2052,0.037, (365*84)/365) #2051; 0.037
-        neptun = Planet(self,sonne,3214,0.035, (365*165)/365) #3213; 0.035
-        pluto = Planet(self,sonne,4220,0.0016, (365*247.68)/365) #4219; 0.0016
+        merkur = Planet(self,"merkur",sonne,42,0.0035,88/365) #41; 0.0035
+        venus = Planet(self,"venus",sonne,78,0.0086, 225/365) #77; 0.0086
+        erde = Planet(self,"erde",sonne,108,0.0091, 1) #107; 0.0091
+        mars = Planet(self,"mars",sonne,164,0.0049, (321 + 365)/365) #163; 0.0049
+        jupiter = Planet(self,"jupiter",sonne,557,0.102, (321 + 365*11)/365) #556; 0.102
+        saturn = Planet(self,"saturn",sonne,1020,0.086, (168 + 365*29)/365) #1019; 0.086
+        uranus = Planet(self,"uranus",sonne,2052,0.037, (365*84)/365) #2051; 0.037
+        neptun = Planet(self,"neptun",sonne,3214,0.035, (365*165)/365) #3213; 0.035
+        pluto = Planet(self,"pluto",sonne,4220,0.0016, (365*247.68)/365) #4219; 0.0016
 
-        #planet1 = Planet(self,sonne,10,1,0.1) #41; 0.0035
-
+        self.loadTextures()
 
         #mond1 = Moon(self,0.5,planet1,1,2)
         #mond2 = Moon(self,0.5, planet2,1,2)
@@ -192,6 +197,26 @@ class ScreenPlanets(IScreen):
         :return: objects[]; Liste mit allen Objekten
         """
         return self.objects
+
+    def loadTextures(self):
+        """
+        Laden der Texturen, so dass sie nur mehr zugewiesen werden muessen
+
+        :return: Nichts
+        """
+        imgDir = "../../Images/"
+        for object in self.getObjects():    #für alle sonnen
+            pic = image.load(imgDir + 'text_' + object.name +'.jpg') #erstellen eines neuen bildes mit der passenden textur
+            self.textures[object.name] = pic.get_texture()
+
+            for subObject in object.dependentObjects: #für alle planeten
+                pic = image.load(imgDir + 'text_' + subObject.name +'.jpg') #erstellen eines neuen bildes mit der passenden textur
+                self.textures[subObject.name] = pic.get_texture()
+
+                for subSubObject in object.dependentObjects: #für alle monde
+                    pic = image.load(imgDir + 'text_' + subSubObject.name +'.jpg') #erstellen eines neuen bildes mit der passenden textur
+                    self.textures[subSubObject.name] = pic.get_texture()
+
 
     def changeLighting(self):
         pass
