@@ -4,9 +4,7 @@ __author__ = 'Martin'
 
 #Import der relevanten Klassen fuer Pygame und PyOpenGL
 import pygame
-from pygame.locals import *
-from OpenGL.GL import *
-from OpenGL.GLU import *
+
 
 from MVC.AbstractMVC import *
 
@@ -20,21 +18,30 @@ class ComputeEventsStart(IComputeEvents):
     screenContent = None
 
     def __init__(self):
+
         #Pygame initialisieren
         pygame.init()
+
         #Fenster offnen
         self.screenContent = ScreenStart()
         self.screen = DrawScreenStart(self.screenContent)
 
+
         self.screen.drawContent()
 
+
+
+
         while True:
+
             #Events abfragen
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
                     self.computeKeyboardEvents(event)
                 else:
                     self.computeMouseEvents(event)
+
+                    
             pygame.display.flip()
 
 
@@ -45,8 +52,9 @@ class ComputeEventsStart(IComputeEvents):
             ComputeEventsPlanets()
 
     def computeMouseEvents(self,event):
-        if event.type == pygame.QUIT: #Falls das Fenster geschlossen werden soll
-            pygame.quit()
+
+         #Falls das Fenster geschlossen werden soll
+        if event.type == pygame.QUIT:
             quit()
 
 class DrawScreenStart(IDrawScreen):
@@ -79,7 +87,10 @@ class DrawScreenStart(IDrawScreen):
         pass
 
     def drawContent(self):
+
+        #Hintergrundbild setzen
         pygame.Surface.blit(pygame.display.get_surface(),self.bgd_image, [0, 0])
+
 
 
 
