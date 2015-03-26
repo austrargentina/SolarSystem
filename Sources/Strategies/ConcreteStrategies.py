@@ -99,7 +99,7 @@ class CamOben(ICameraStrategy):
     """
 
     def implementCamera(self):
-        glRotatef(15,1,0,0) #drehen des urpsrungs
+        glRotatef(90,1,0,0) #drehen des urpsrungs
 
 class CamParallel(ICameraStrategy):
     """
@@ -109,3 +109,12 @@ class CamParallel(ICameraStrategy):
 
     def implementCamera(self):
         glRotatef(0,1,0,0) #drehen des urpsrungs
+
+class CamSeitlich(ICameraStrategy):
+    """
+    Implementiert die Klasse ICameraStrategy
+    Bewegungsstrategie: Kamera befindet sich parallel zu den Planetenbahnen
+    """
+
+    def implementCamera(self):
+        glRotatef(15,1,0,0) #drehen des urpsrungs

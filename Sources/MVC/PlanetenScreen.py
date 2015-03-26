@@ -242,5 +242,8 @@ class ScreenPlanets(IScreen):
         #Falls Camera derzeit auf Cam-Parallel-Strategie
         elif isinstance(self.camera, CamParallel):
             #Auf NoAnimation-Strategie aendern
-            self.camera = CamOben()
+            self.camera = CamSeitlich()
+        elif isinstance(self.camera, CamSeitlich):
+            #Auf NoAnimation-Strategie aendern
+            self.camera = CamOben()    
 
