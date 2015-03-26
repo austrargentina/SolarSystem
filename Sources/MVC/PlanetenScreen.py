@@ -207,15 +207,15 @@ class ScreenPlanets(IScreen):
         imgDir = "../../Images/"
         for object in self.getObjects():    #für alle sonnen
             pic = image.load(imgDir + 'text_' + object.name +'.jpg') #erstellen eines neuen bildes mit der passenden textur
-            self.textures[object.name] = pic.get_texture()
+            self.textures[object.name] = pic
 
             for subObject in object.dependentObjects: #für alle planeten
                 pic = image.load(imgDir + 'text_' + subObject.name +'.jpg') #erstellen eines neuen bildes mit der passenden textur
-                self.textures[subObject.name] = pic.get_texture()
+                self.textures[subObject.name] = pic
 
-                for subSubObject in object.dependentObjects: #für alle monde
+                for subSubObject in subObject.dependentObjects: #für alle monde
                     pic = image.load(imgDir + 'text_' + subSubObject.name +'.jpg') #erstellen eines neuen bildes mit der passenden textur
-                    self.textures[subSubObject.name] = pic.get_texture()
+                    self.textures[subSubObject.name] = pic
 
 
     def changeLighting(self):

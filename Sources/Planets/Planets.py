@@ -40,14 +40,15 @@ class Sun(ICenterObject):
         self.radius = radius * model.vergr/5 #zuweisen des übergebenen radius
 
     def drawObject(self):
-        texture = self.model.textures[self.name]
+        glEnable(GL_TEXTURE_2D)
+
+        texture = self.model.textures[self.name].get_texture()
+
+        glEnable(texture.target)
         glBindTexture(texture.target, texture.id)
 
         sphere = gluNewQuadric()
-
-        gluQuadricNormals(sphere,GLU_SMOOTH)
         gluQuadricTexture(sphere,GL_TRUE)
-
         gluSphere(sphere,self.radius,self.model.unterteilungen,self.model.unterteilungen)
 
         #Fuer jeden abhängigen Planeten
@@ -83,9 +84,17 @@ class Planet(ICenterObject):
         glRotatef(self.rotation*self.model.zaehler,0,1,0) #drehen des urpsrungs
         glTranslatef(self.distanceToSun,0.0,0.0) #Verschieben des ursprungs
 
-        sphere = gluNewQuadric()
+        glEnable(GL_TEXTURE_2D)
 
+        texture = self.model.textures[self.name].get_texture()
+
+        glEnable(texture.target)
+        glBindTexture(texture.target, texture.id)
+
+        sphere = gluNewQuadric()
+        gluQuadricTexture(sphere,GL_TRUE)
         gluSphere(sphere,self.radius,self.model.unterteilungen,self.model.unterteilungen)
+
 
         #Fuer jeden abhängigen Planeten
         for object in self.dependentObjects:
