@@ -73,7 +73,7 @@ class DrawScreenStart(IDrawScreen):
         pygame.display.set_caption("Solarsystem Menü")
 
         #Hintergrundbild laden
-        self.bgd_image = pygame.image.load("../../Images/Sunrise-Earth-In-Space.jpg").convert()
+        self.bgd_image = pygame.image.load("../../Images/Splashscreen.jpg").convert()
 
     def drawButtons(self):
         pass

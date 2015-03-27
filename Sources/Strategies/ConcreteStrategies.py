@@ -3,7 +3,6 @@ __author__ = 'Daniel'
 from Strategies.AbstractStrategies import *
 
 from OpenGL.GL import *
-from OpenGL.GLU import *
 
 class NoLight(ILightingStrategy):
     """
