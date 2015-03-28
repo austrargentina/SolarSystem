@@ -27,6 +27,10 @@ class ComputeEventsPlanets(IComputeEvents):
 
     def __init__(self):
 
+        print("Press 'c' to change the camera!\n")
+        print("Press the left mouse button to start/stop the animation!\n")
+        print("Use 'left' and 'right' to slow down/accelerate the animation!")
+
         #Pygame initialisieren
         #pygame.init()
         #Fenster offnen
