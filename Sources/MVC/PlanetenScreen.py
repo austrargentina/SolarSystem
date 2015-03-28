@@ -51,7 +51,7 @@ class ComputeEventsPlanets(IComputeEvents):
             self.screenContent.zaehler +=  1 * self.screenContent.geschw; #Für Rotation
 
             pygame.display.flip()
-            pygame.time.wait(20)
+            pygame.time.wait(25)
 
     def computeKeyboardEvents(self, event):
         """
@@ -176,6 +176,7 @@ class ScreenPlanets(IScreen):
 
         sonne = Sun(self,"sonne", 1)
         self.objects.append(sonne) #hinzufuegen der Sonne
+
         merkur = Planet(self,"merkur",sonne,42,0.0035,88/365) #41; 0.0035
         venus = Planet(self,"venus",sonne,78,0.0086, 225/365) #77; 0.0086
         erde = Planet(self,"erde",sonne,108,0.0091, 1) #107; 0.0091
@@ -186,10 +187,10 @@ class ScreenPlanets(IScreen):
         neptun = Planet(self,"neptun",sonne,3214,0.035, (365*165)/365) #3213; 0.035
         pluto = Planet(self,"pluto",sonne,4220,0.0016, (365*247.68)/365) #4219; 0.0016
 
-        self.loadTextures()
+        mond_erde = Moon(self,"mond_erde",erde,5,0.00091, 28/365)
+        mond_jupiter = Moon(self,"mond_jupiter",jupiter,30,0.0091, 50/365)
 
-        #mond1 = Moon(self,0.5,planet1,1,2)
-        #mond2 = Moon(self,0.5, planet2,1,2)
+        self.loadTextures()
 
     def getObjects(self):
         """
@@ -237,13 +238,10 @@ class ScreenPlanets(IScreen):
     def changeCamera(self):
         #Falls Camera derzeit auf Cam-Oben-Strategie
         if isinstance(self.camera, CamOben):
-            #Auf WithAnimation-Strategie aendern
             self.camera = CamParallel()
         #Falls Camera derzeit auf Cam-Parallel-Strategie
         elif isinstance(self.camera, CamParallel):
-            #Auf NoAnimation-Strategie aendern
             self.camera = CamSeitlich()
         elif isinstance(self.camera, CamSeitlich):
-            #Auf NoAnimation-Strategie aendern
-            self.camera = CamOben()    
+            self.camera = CamOben()
 

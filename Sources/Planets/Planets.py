@@ -64,7 +64,6 @@ class Planet(ICenterObject):
     """
     Planet ist Objekt, dass sich um eigen Achse dreht und um Sonne dreht
     """
-    dependentObjects = []
 
     name = None
     model = None
@@ -73,6 +72,7 @@ class Planet(ICenterObject):
     distanceToSun = 0
 
     def __init__(self, model, name, sun, distanceToSun, radius, rotation):
+        self.dependentObjects = []
         self.name = name
         self.model = model
         sun.addDependentObject(self) #hinzufügen des Plaentens zur aktuellen Sonne
@@ -96,7 +96,7 @@ class Planet(ICenterObject):
         gluSphere(sphere,self.radius,self.model.unterteilungen,self.model.unterteilungen)
 
 
-        #Fuer jeden abhängigen Planeten
+        #Fuer jeden abhängigen Mond
         for object in self.dependentObjects:
              glPushMatrix()
              object.drawObject()
@@ -121,14 +121,23 @@ class Moon(ICenterObject):
         self.name = name
         self.model = model
         planet.addDependentObject(self) #hinzufügen des Mondes zum aktuellen Planeten
-        self.radius = radius
-        self.rotation = rotation
-        self.distanceToPlanet = distanceToPlanet
+        self.radius = radius * model.vergr
+        self.rotation = 1/(rotation)
+        self.distanceToPlanet = planet.radius + distanceToPlanet #* model.vergr
         
     def drawObject(self):
         glRotatef(self.rotation*self.model.zaehler,0,1,0) #drehen des urpsrungs
         glTranslatef(self.distanceToPlanet,0.0,0.0) #Verschieben des ursprungs
+
+        glEnable(GL_TEXTURE_2D)
+
+        texture = self.model.textures[self.name].get_texture()
+
+        glEnable(texture.target)
+        glBindTexture(texture.target, texture.id)
+
         sphere = gluNewQuadric()
+        gluQuadricTexture(sphere,GL_TRUE)
         gluSphere(sphere,self.radius,self.model.unterteilungen,self.model.unterteilungen)
 
     def addDependentObject(self):
