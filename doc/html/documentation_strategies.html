@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Planet Documentation &mdash; SolarSystem 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="SolarSystem 1.0.0 documentation" href="index.html" />
+    <link rel="prev" title="Strategies Documentation" href="documentation_planets.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="documentation_planets.html" title="Strategies Documentation"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">SolarSystem 1.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="planet-documentation">
+<h1>Planet Documentation<a class="headerlink" href="#planet-documentation" title="Permalink to this headline">¶</a></h1>
+<p>This is the documentation of the classes which are related to the galaxy-principle (suns, planets, moons).</p>
+<div class="section" id="interface-icenterobject">
+<h2>Interface ICenterObject<a class="headerlink" href="#interface-icenterobject" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="Planets.Planets.ICenterObject">
+<em class="property">class </em><code class="descclassname">Planets.Planets.</code><code class="descname">ICenterObject</code><a class="headerlink" href="#Planets.Planets.ICenterObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ist das Interaface fuer alle Objekte im Weltraum</p>
+<dl class="attribute">
+<dt id="Planets.Planets.ICenterObject.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#Planets.Planets.ICenterObject.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Planets.Planets.ICenterObject.addDependentObject">
+<code class="descname">addDependentObject</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Planets.Planets.ICenterObject.addDependentObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hinzufügen eines abhängigen Objekts (Sonne -&gt; Planet; Planet -&gt; Mond)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Planets.Planets.ICenterObject.drawObject">
+<code class="descname">drawObject</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Planets.Planets.ICenterObject.drawObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Zeichnet das Objekt und ruft die drawObject()-Methode aller Unterobjekte auf</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="galaxy-objects">
+<h2>Galaxy objects<a class="headerlink" href="#galaxy-objects" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="Planets.Planets.Sun">
+<em class="property">class </em><code class="descclassname">Planets.Planets.</code><code class="descname">Sun</code><span class="sig-paren">(</span><em>model</em>, <em>name</em>, <em>radius</em><span class="sig-paren">)</span><a class="headerlink" href="#Planets.Planets.Sun" title="Permalink to this definition">¶</a></dt>
+<dd><p>Objekt ist Fixpunkt und dreht sich nicht</p>
+<dl class="method">
+<dt id="Planets.Planets.Sun.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>model</em>, <em>name</em>, <em>radius</em><span class="sig-paren">)</span><a class="headerlink" href="#Planets.Planets.Sun.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialisieren aller Attribute</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>model</strong> &#8211; Model-Objekt des MVCs</li>
+<li><strong>name</strong> &#8211; Name der Sonne</li>
+<li><strong>radius</strong> &#8211; Radius der Sonne</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Nichts</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Planets.Planets.Sun.addDependentObject">
+<code class="descname">addDependentObject</code><span class="sig-paren">(</span><em>planet</em><span class="sig-paren">)</span><a class="headerlink" href="#Planets.Planets.Sun.addDependentObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hinzufügen eines Planeten als abhängiges Objekt</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>planet</strong> &#8211; Planet, der hinzugefügt werden soll</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Nichts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Planets.Planets.Sun.drawObject">
+<code class="descname">drawObject</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Planets.Planets.Sun.drawObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Zeichnet die Sonne und ruft die drawObject aller abhängigen Planeten auf</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Nichts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="Planets.Planets.Planet">
+<em class="property">class </em><code class="descclassname">Planets.Planets.</code><code class="descname">Planet</code><span class="sig-paren">(</span><em>model</em>, <em>name</em>, <em>sun</em>, <em>distanceToSun</em>, <em>radius</em>, <em>rotation</em><span class="sig-paren">)</span><a class="headerlink" href="#Planets.Planets.Planet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Planet ist Objekt, dass sich um eigen Achse dreht und um Sonne dreht</p>
+<dl class="method">
+<dt id="Planets.Planets.Planet.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>model</em>, <em>name</em>, <em>sun</em>, <em>distanceToSun</em>, <em>radius</em>, <em>rotation</em><span class="sig-paren">)</span><a class="headerlink" href="#Planets.Planets.Planet.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialisieren aller Attribute</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>model</strong> &#8211; Model-Objekt des MVCs</li>
+<li><strong>name</strong> &#8211; Name des Planeten</li>
+<li><strong>sun</strong> &#8211; Sonne, um die sich der Planet dreht</li>
+<li><strong>distanceToSun</strong> &#8211; Entfernung zur Sonne</li>
+<li><strong>radius</strong> &#8211; Radius des Planeten</li>
+<li><strong>rotation</strong> &#8211; Drehung um Sonne</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Nichts</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Planets.Planets.Planet.addDependentObject">
+<code class="descname">addDependentObject</code><span class="sig-paren">(</span><em>moon</em><span class="sig-paren">)</span><a class="headerlink" href="#Planets.Planets.Planet.addDependentObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hinzufügen eines Mondes als abhängiges Objekt</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>moon</strong> &#8211; Mond, der hinzugefügt werden soll</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Nichts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Planets.Planets.Planet.drawObject">
+<code class="descname">drawObject</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Planets.Planets.Planet.drawObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Zeichnet den Planeten und ruft die drawObject aller abhängigen Monde auf</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Nichts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="Planets.Planets.Moon">
+<em class="property">class </em><code class="descclassname">Planets.Planets.</code><code class="descname">Moon</code><span class="sig-paren">(</span><em>model</em>, <em>name</em>, <em>planet</em>, <em>distanceToPlanet</em>, <em>radius</em>, <em>rotation</em><span class="sig-paren">)</span><a class="headerlink" href="#Planets.Planets.Moon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mond ist Objekt, dass sich um eigene Achse dreht, um einen Planeten und um die Sonne</p>
+<dl class="method">
+<dt id="Planets.Planets.Moon.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>model</em>, <em>name</em>, <em>planet</em>, <em>distanceToPlanet</em>, <em>radius</em>, <em>rotation</em><span class="sig-paren">)</span><a class="headerlink" href="#Planets.Planets.Moon.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialisieren aller Attribute</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>model</strong> &#8211; Model-Objekt des MVCs</li>
+<li><strong>name</strong> &#8211; Name des Planeten</li>
+<li><strong>planet</strong> &#8211; Planet, um den sich der Mond dreht</li>
+<li><strong>distanceToPlanet</strong> &#8211; Entfernung zum Planeten</li>
+<li><strong>radius</strong> &#8211; Radius des Mondes</li>
+<li><strong>rotation</strong> &#8211; Drehung um Planeten</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Nichts</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Planets.Planets.Moon.drawObject">
+<code class="descname">drawObject</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Planets.Planets.Moon.drawObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Zeichnet den Mond</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Nichts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Planet Documentation</a><ul>
+<li><a class="reference internal" href="#interface-icenterobject">Interface ICenterObject</a></li>
+<li><a class="reference internal" href="#galaxy-objects">Galaxy objects</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="documentation_planets.html"
+                        title="previous chapter">Strategies Documentation</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/documentation_strategies.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="documentation_planets.html" title="Strategies Documentation"
+             >previous</a> |</li>
+        <li><a href="index.html">SolarSystem 1.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Daniel Bracher, Martin Suschny.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b2.
+    </div>
+  </body>
+</html>

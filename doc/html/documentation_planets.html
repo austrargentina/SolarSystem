@@ -1,0 +1,435 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Strategies Documentation &mdash; SolarSystem 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="SolarSystem 1.0.0 documentation" href="index.html" />
+    <link rel="next" title="Planet Documentation" href="documentation_strategies.html" />
+    <link rel="prev" title="MVC Documentation" href="documentation_mvc.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="documentation_strategies.html" title="Planet Documentation"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="documentation_mvc.html" title="MVC Documentation"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">SolarSystem 1.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="strategies-documentation">
+<h1>Strategies Documentation<a class="headerlink" href="#strategies-documentation" title="Permalink to this headline">¶</a></h1>
+<p>This is the documentation of the classes which are related to the Strategy-Pattern.</p>
+<div class="section" id="strategy-interfaces">
+<h2>Strategy Interfaces<a class="headerlink" href="#strategy-interfaces" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="Strategies.AbstractStrategies.IMovementStrategy">
+<em class="property">class </em><code class="descclassname">Strategies.AbstractStrategies.</code><code class="descname">IMovementStrategy</code><a class="headerlink" href="#Strategies.AbstractStrategies.IMovementStrategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ist das Interface für die Movement-Strategie</p>
+<dl class="attribute">
+<dt id="Strategies.AbstractStrategies.IMovementStrategy.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#Strategies.AbstractStrategies.IMovementStrategy.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Strategies.AbstractStrategies.IMovementStrategy.implementMovement">
+<code class="descname">implementMovement</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Strategies.AbstractStrategies.IMovementStrategy.implementMovement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implementieren der Movement-Strategie</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Nichts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="Strategies.AbstractStrategies.ILightingStrategy">
+<em class="property">class </em><code class="descclassname">Strategies.AbstractStrategies.</code><code class="descname">ILightingStrategy</code><a class="headerlink" href="#Strategies.AbstractStrategies.ILightingStrategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ist das Interface für die Lighting-Strategie</p>
+<dl class="attribute">
+<dt id="Strategies.AbstractStrategies.ILightingStrategy.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#Strategies.AbstractStrategies.ILightingStrategy.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Strategies.AbstractStrategies.ILightingStrategy.implementLighting">
+<code class="descname">implementLighting</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Strategies.AbstractStrategies.ILightingStrategy.implementLighting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implementieren der Lighting-Strategie</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Nichts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="Strategies.AbstractStrategies.IAppearenceStrategy">
+<em class="property">class </em><code class="descclassname">Strategies.AbstractStrategies.</code><code class="descname">IAppearenceStrategy</code><a class="headerlink" href="#Strategies.AbstractStrategies.IAppearenceStrategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ist das Interface für die Appearence-Strategie</p>
+<dl class="attribute">
+<dt id="Strategies.AbstractStrategies.IAppearenceStrategy.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#Strategies.AbstractStrategies.IAppearenceStrategy.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Strategies.AbstractStrategies.IAppearenceStrategy.implementAppearence">
+<code class="descname">implementAppearence</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Strategies.AbstractStrategies.IAppearenceStrategy.implementAppearence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implementieren der Appearence-Strategie</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Nichts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="Strategies.AbstractStrategies.ICameraStrategy">
+<em class="property">class </em><code class="descclassname">Strategies.AbstractStrategies.</code><code class="descname">ICameraStrategy</code><a class="headerlink" href="#Strategies.AbstractStrategies.ICameraStrategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ist das Interface für die Kamera-Strategie</p>
+<dl class="attribute">
+<dt id="Strategies.AbstractStrategies.ICameraStrategy.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#Strategies.AbstractStrategies.ICameraStrategy.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Strategies.AbstractStrategies.ICameraStrategy.implementCamera">
+<code class="descname">implementCamera</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Strategies.AbstractStrategies.ICameraStrategy.implementCamera" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implementieren der Camera-Strategie</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Nichts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="concrete-strategies">
+<h2>Concrete Strategies<a class="headerlink" href="#concrete-strategies" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="Strategies.ConcreteStrategies.NoLight">
+<em class="property">class </em><code class="descclassname">Strategies.ConcreteStrategies.</code><code class="descname">NoLight</code><a class="headerlink" href="#Strategies.ConcreteStrategies.NoLight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implementiert die Klasse ILightingStrategy
+Beleuchtungsstrategie: Keine Beleuchtung</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="Strategies.ConcreteStrategies.PointLight">
+<em class="property">class </em><code class="descclassname">Strategies.ConcreteStrategies.</code><code class="descname">PointLight</code><a class="headerlink" href="#Strategies.ConcreteStrategies.PointLight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implementiert die Klasse ILightingStrategy
+Beleuchtungsstrategie: Ein PointLight</p>
+<dl class="method">
+<dt id="Strategies.ConcreteStrategies.PointLight.implementLighting">
+<code class="descname">implementLighting</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Strategies.ConcreteStrategies.PointLight.implementLighting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Erestellen eines Point-Lights</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Nichts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="Strategies.ConcreteStrategies.NoAnimation">
+<em class="property">class </em><code class="descclassname">Strategies.ConcreteStrategies.</code><code class="descname">NoAnimation</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#Strategies.ConcreteStrategies.NoAnimation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implementiert die Klasse IMovementStrategy
+Bewegungsstrategie: Keine Bewegung, nur Stillstand</p>
+<dl class="method">
+<dt id="Strategies.ConcreteStrategies.NoAnimation.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#Strategies.ConcreteStrategies.NoAnimation.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialisieren aller Attribute</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>model</strong> &#8211; Model-Objekt des MVCs</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Strategies.ConcreteStrategies.NoAnimation.implementMovement">
+<code class="descname">implementMovement</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Strategies.ConcreteStrategies.NoAnimation.implementMovement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deaktivieren der Animation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Nichts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="Strategies.ConcreteStrategies.WithAnimation">
+<em class="property">class </em><code class="descclassname">Strategies.ConcreteStrategies.</code><code class="descname">WithAnimation</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#Strategies.ConcreteStrategies.WithAnimation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implementiert die Klasse IMovementStrategy
+Bewegungsstrategie: Planeten drehen sich um Sonne, Monde drehen sich um Planeten</p>
+<dl class="method">
+<dt id="Strategies.ConcreteStrategies.WithAnimation.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#Strategies.ConcreteStrategies.WithAnimation.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialisieren aller Attribute</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>model</strong> &#8211; Model-Objekt des MVCs</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Strategies.ConcreteStrategies.WithAnimation.implementMovement">
+<code class="descname">implementMovement</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Strategies.ConcreteStrategies.WithAnimation.implementMovement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Aktivieren der Animation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Nichts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="Strategies.ConcreteStrategies.NoTexture">
+<em class="property">class </em><code class="descclassname">Strategies.ConcreteStrategies.</code><code class="descname">NoTexture</code><a class="headerlink" href="#Strategies.ConcreteStrategies.NoTexture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implementiert die Klasse IAppearenceStrategy
+Bewegungsstrategie: Keine Texturen</p>
+<dl class="method">
+<dt id="Strategies.ConcreteStrategies.NoTexture.implementAppearence">
+<code class="descname">implementAppearence</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Strategies.ConcreteStrategies.NoTexture.implementAppearence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deaktivieren der Texturen</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Nichts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="Strategies.ConcreteStrategies.WithTexture">
+<em class="property">class </em><code class="descclassname">Strategies.ConcreteStrategies.</code><code class="descname">WithTexture</code><a class="headerlink" href="#Strategies.ConcreteStrategies.WithTexture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implementiert die Klasse IAppearenceStrategy
+Bewegungsstrategie: Realistische Texturen</p>
+<dl class="method">
+<dt id="Strategies.ConcreteStrategies.WithTexture.implementAppearence">
+<code class="descname">implementAppearence</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Strategies.ConcreteStrategies.WithTexture.implementAppearence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Aktivieren der Texturen</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Nichts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="Strategies.ConcreteStrategies.CamOben">
+<em class="property">class </em><code class="descclassname">Strategies.ConcreteStrategies.</code><code class="descname">CamOben</code><a class="headerlink" href="#Strategies.ConcreteStrategies.CamOben" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implementiert die Klasse ICameraStrategy
+Bewegungsstrategie: Kamera befindet sich in der Vogelperspektive</p>
+<dl class="method">
+<dt id="Strategies.ConcreteStrategies.CamOben.implementCamera">
+<code class="descname">implementCamera</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Strategies.ConcreteStrategies.CamOben.implementCamera" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kamera schaut von oben auf Planeten</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Nichts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="Strategies.ConcreteStrategies.CamParallel">
+<em class="property">class </em><code class="descclassname">Strategies.ConcreteStrategies.</code><code class="descname">CamParallel</code><a class="headerlink" href="#Strategies.ConcreteStrategies.CamParallel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implementiert die Klasse ICameraStrategy
+Bewegungsstrategie: Kamera befindet sich parallel zu den Planetenbahnen</p>
+<dl class="method">
+<dt id="Strategies.ConcreteStrategies.CamParallel.implementCamera">
+<code class="descname">implementCamera</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Strategies.ConcreteStrategies.CamParallel.implementCamera" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kamera schaut parallel zu Planetenbahnen auf Planeten</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Nichts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="Strategies.ConcreteStrategies.CamSeitlich">
+<em class="property">class </em><code class="descclassname">Strategies.ConcreteStrategies.</code><code class="descname">CamSeitlich</code><a class="headerlink" href="#Strategies.ConcreteStrategies.CamSeitlich" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implementiert die Klasse ICameraStrategy
+Bewegungsstrategie: Kamera befindet sich schräg zu den Planetenbahnen</p>
+<dl class="method">
+<dt id="Strategies.ConcreteStrategies.CamSeitlich.implementCamera">
+<code class="descname">implementCamera</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Strategies.ConcreteStrategies.CamSeitlich.implementCamera" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kamera schaut schräg auf Planeten</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Nichts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Strategies Documentation</a><ul>
+<li><a class="reference internal" href="#strategy-interfaces">Strategy Interfaces</a></li>
+<li><a class="reference internal" href="#concrete-strategies">Concrete Strategies</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="documentation_mvc.html"
+                        title="previous chapter">MVC Documentation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="documentation_strategies.html"
+                        title="next chapter">Planet Documentation</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/documentation_planets.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="documentation_strategies.html" title="Planet Documentation"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="documentation_mvc.html" title="MVC Documentation"
+             >previous</a> |</li>
+        <li><a href="index.html">SolarSystem 1.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Daniel Bracher, Martin Suschny.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b2.
+    </div>
+  </body>
+</html>

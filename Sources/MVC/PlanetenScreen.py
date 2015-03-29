@@ -21,13 +21,25 @@ from pyglet.gl import *
 
 
 class ComputeEventsPlanets(IComputeEvents):
+    """
+    Ist die Controller-Klasse des MVCs und ruft die DrawFunction und die Strategien immer wieder auf;
+    Verarbeitet außerdem die Eingaben
+    """
 
-    screen = None
-    screenContent = None
+    screen = None   #View
+    screenContent = None    #Model
 
     def __init__(self):
+        """
+        Initialisieren aller Attribute
 
+        :return: nichts
+        """
+
+        #Ausgaben für den Benutzer, wie er das Programm verwenden soll
         print("Press 'c' to change the camera!\n")
+        print("Use the mouse wheel to change the distance to the planets!\n")
+        print("Press 't' to change the appearence of the planets!\n")
         print("Press the left mouse button to start/stop the animation!\n")
         print("Use 'left' and 'right' to slow down/accelerate the animation!")
 
@@ -63,12 +75,14 @@ class ComputeEventsPlanets(IComputeEvents):
 
         :return: Nichts
         """
-        if event.key == pygame.K_LEFT:
+        if event.key == pygame.K_LEFT: #Animation bremsen
             self.screenContent.geschw -= 1
-        elif event.key == pygame.K_RIGHT:
+        elif event.key == pygame.K_RIGHT: #Animation beschleunigen
             self.screenContent.geschw += 1
-        elif event.key == pygame.K_c:
+        elif event.key == pygame.K_c: #Ändern der Kamera-Perspektive
             self.screenContent.changeCamera()
+        elif event.key == pygame.K_t: #Ändern der Textur-Strategie
+            self.screenContent.changeAppearence()
 
     def computeMouseEvents(self, event):
         """
@@ -96,6 +110,8 @@ class ComputeEventsPlanets(IComputeEvents):
     def doStrategies(self):
         """
         Wendet die verschiedenen Strategien an
+
+        :return: Nichts
         """
         self.screenContent.lighting.implementLighting()
         self.screenContent.movement.implementMovement()
@@ -104,13 +120,19 @@ class ComputeEventsPlanets(IComputeEvents):
 
 class DrawScreenPlanets(IDrawScreen):
     """
-    Ist die View-Klasse des PlanetenScreens und beinhaltet die Infos ueber das Display
+    Ist die View-Klasse des PlanetenScreens und beinhaltet die Infos ueber das Display, und initialisiert dieses
     """
 
-    #Model des MVCs, beinhaltet alle Objekte
-    screenContent = None
+    screenContent = None     #Model des MVCs, beinhaltet alle Objekte
 
     def __init__(self, screenContent):
+        """
+        Initialisieren aller Attribute
+
+        :param screenContent: Model-Objekt des MVCs
+
+        :return: Nichts
+        """
         #Zuweisen des uebermittelten Models
         self.screenContent = screenContent
 
@@ -121,18 +143,36 @@ class DrawScreenPlanets(IDrawScreen):
         #Fenster Titel einstellen
         pygame.display.set_caption("Solarsystem Simulation")
 
-        self.setPerspective()
+        self.setPerspective() #Perspektive aufsetzen
 
     def drawButtons(self):
+        """
+        Zeichnen der Buttons
+
+        :return: Nichts
+        """
+
         pass
 
     def drawContent(self):
+        """
+        Zeichnen der Objekte, die in der Model-Klasse gespeichert sind
+
+        :return: Nichts
+        """
+
         #Fuer jedes Objekt in der Model-Klasse
         for object in self.screenContent.getObjects():
             #Zeichne Objekt
             object.drawObject()
 
     def setPerspective(self):
+        """
+        Setzen der Perspektive
+
+        :return: Nichts
+        """
+
         glLoadIdentity()
         #Perspektive aendern
         gluPerspective(self.screenContent.fov, (self.display[0]/self.display[1]), 0.1, self.screenContent.maxSichtbar)
@@ -169,6 +209,7 @@ class ScreenPlanets(IScreen):
     def __init__(self):
         """
         Es werden die Standard-Strategien implemntiert (keine Animation, kein Licht, keine Texturen, Kamera von oben)
+
         :return: Nichts
         """
 
@@ -194,21 +235,24 @@ class ScreenPlanets(IScreen):
         mond_erde = Moon(self,"mond_erde",erde,5,0.00091, 28/365)
         mond_jupiter = Moon(self,"mond_jupiter",jupiter,30,0.0091, 50/365)
 
-        self.loadTextures()
+        self.loadTextures() #Texturen laden
 
     def getObjects(self):
         """
         Liefert die Liste mit allen Objekten zurueck
+
         :return: objects[]; Liste mit allen Objekten
         """
         return self.objects
 
     def loadTextures(self):
+
         """
         Laden der Texturen, so dass sie nur mehr zugewiesen werden muessen
 
         :return: Nichts
         """
+
         imgDir = "../../Images/"
         for object in self.getObjects():    #für alle sonnen
             pic = image.load(imgDir + 'text_' + object.name +'.jpg') #erstellen eines neuen bildes mit der passenden textur
@@ -224,9 +268,20 @@ class ScreenPlanets(IScreen):
 
 
     def changeLighting(self):
+        """
+        Ändert die Belichtungs-Strategie
+
+        :return: Nichts
+        """
         pass
 
     def changeMovement(self):
+        """
+        Ändert die Animations-Strategie ( Animation -> Keine Animation -> ...)
+
+        :return: Nichts
+        """
+
         #Falls Movement derzeit NoAnimation-Strategie implementiert
         if isinstance(self. movement, NoAnimation):
             #Auf WithAnimation-Strategie aendern
@@ -237,9 +292,26 @@ class ScreenPlanets(IScreen):
             self.movement = NoAnimation(self)
 
     def changeAppearence(self):
-        pass
+        """
+        Ändert die Appearence-Strategie
+
+        :return: Nichts
+        """
+
+        #Falls derzeit Texturen deaktiviert sind
+        if isinstance(self.appearence, NoTexture):
+            self.appearence = WithTexture()
+        #Falls derzeit Texturen aktiviert sind
+        elif isinstance(self.appearence, WithTexture):
+            self.appearence = NoTexture()
 
     def changeCamera(self):
+        """
+        Ändert die Kamera-Strategie
+
+        :return: Nichts
+        """
+
         #Falls Camera derzeit auf Cam-Oben-Strategie
         if isinstance(self.camera, CamOben):
             self.camera = CamParallel()

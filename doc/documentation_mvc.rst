@@ -1,0 +1,61 @@
+MVC Documentation
+=================
+
+This is the documentation of the classes which are related to the MVC-Principle.
+
+Interfaces MVC
+--------------
+
+.. py:currentmodule:: MVC.AbstractMVC
+.. autoclass:: IComputeEvents
+	:members:
+	:special-members:
+	:private-members:
+	
+.. autoclass:: IDrawScreen
+	:members:
+	:special-members:
+	:private-members:
+	
+.. autoclass:: IScreen
+	:members:
+	:special-members:
+	:private-members:
+	
+MVC StartScreen
+---------------
+
+.. py:currentmodule:: MVC.StartScreen
+.. autoclass:: ComputeEventsStart
+	:members:
+	:special-members:
+	:private-members:
+	
+.. autoclass:: DrawScreenStart
+	:members:
+	:special-members:
+	:private-members:
+	
+.. autoclass:: ScreenStart
+	:members:
+	:special-members:
+	:private-members:
+
+MVC PlanetenScreen
+------------------
+
+.. py:currentmodule:: MVC.PlanetenScreen
+.. autoclass:: ComputeEventsPlanets
+	:members:
+	:special-members:
+	:private-members:
+	
+.. autoclass:: DrawScreenPlanets
+	:members:
+	:special-members:
+	:private-members:
+	
+.. autoclass:: ScreenPlanets
+	:members:
+	:special-members:
+	:private-members:

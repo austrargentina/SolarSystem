@@ -1,0 +1,536 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>MVC Documentation &mdash; SolarSystem 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="SolarSystem 1.0.0 documentation" href="index.html" />
+    <link rel="next" title="Planet Documentation" href="documentation_planets.html" />
+    <link rel="prev" title="Welcome to SolarSystem’s documentation!" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="documentation_planets.html" title="Planet Documentation"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to SolarSystem’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">SolarSystem 1.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="mvc-documentation">
+<h1>MVC Documentation<a class="headerlink" href="#mvc-documentation" title="Permalink to this headline">¶</a></h1>
+<p>This is the documentation of the classes which are related to the MVC-Principle.</p>
+<div class="section" id="interfaces-mvc">
+<h2>Interfaces MVC<a class="headerlink" href="#interfaces-mvc" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MVC.AbstractMVC.IComputeEvents">
+<em class="property">class </em><code class="descclassname">MVC.AbstractMVC.</code><code class="descname">IComputeEvents</code><a class="headerlink" href="#MVC.AbstractMVC.IComputeEvents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ist das Interface fuer die Controller-Klasse</p>
+<dl class="attribute">
+<dt id="MVC.AbstractMVC.IComputeEvents.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#MVC.AbstractMVC.IComputeEvents.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MVC.AbstractMVC.IComputeEvents.computeKeyboardEvents">
+<code class="descname">computeKeyboardEvents</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MVC.AbstractMVC.IComputeEvents.computeKeyboardEvents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verarbeitet die Keyboard-Events
+:return: Nichts</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MVC.AbstractMVC.IComputeEvents.computeMouseEvents">
+<code class="descname">computeMouseEvents</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MVC.AbstractMVC.IComputeEvents.computeMouseEvents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verarbeitet die Mouse-Events
+:return: Nichts</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MVC.AbstractMVC.IDrawScreen">
+<em class="property">class </em><code class="descclassname">MVC.AbstractMVC.</code><code class="descname">IDrawScreen</code><a class="headerlink" href="#MVC.AbstractMVC.IDrawScreen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ist das Interface fuer die View-Klasse</p>
+<dl class="attribute">
+<dt id="MVC.AbstractMVC.IDrawScreen.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#MVC.AbstractMVC.IDrawScreen.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MVC.AbstractMVC.IDrawScreen.drawButtons">
+<code class="descname">drawButtons</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MVC.AbstractMVC.IDrawScreen.drawButtons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Falls vorhanden, sollen hier die Buttons gezeichnet werden
+:return: Nichts</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MVC.AbstractMVC.IDrawScreen.drawContent">
+<code class="descname">drawContent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MVC.AbstractMVC.IDrawScreen.drawContent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Der Inhalt wird gezeichnet (Hintergrundbild, Planeten, etc.)
+:return: Nichts</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MVC.AbstractMVC.IScreen">
+<em class="property">class </em><code class="descclassname">MVC.AbstractMVC.</code><code class="descname">IScreen</code><a class="headerlink" href="#MVC.AbstractMVC.IScreen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ist das Interface fuer die Model-Klasse</p>
+<dl class="attribute">
+<dt id="MVC.AbstractMVC.IScreen.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#MVC.AbstractMVC.IScreen.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MVC.AbstractMVC.IScreen.getObjects">
+<code class="descname">getObjects</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MVC.AbstractMVC.IScreen.getObjects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Liefert alle Planeten, die der derzeitige Screen beinhaltet, zurueck
+:return: objects[]</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="mvc-startscreen">
+<h2>MVC StartScreen<a class="headerlink" href="#mvc-startscreen" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MVC.StartScreen.ComputeEventsStart">
+<em class="property">class </em><code class="descclassname">MVC.StartScreen.</code><code class="descname">ComputeEventsStart</code><a class="headerlink" href="#MVC.StartScreen.ComputeEventsStart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ist die Controller-Klasse des StartScreens</p>
+<dl class="method">
+<dt id="MVC.StartScreen.ComputeEventsStart.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MVC.StartScreen.ComputeEventsStart.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Konstruktor</p>
+<p>Erstellt unser Fenster und füllt es mit vorgegebnen Content;
+Überprüft auf Events und ruft dementsprechende Methoden auf.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MVC.StartScreen.ComputeEventsStart.computeKeyboardEvents">
+<code class="descname">computeKeyboardEvents</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#MVC.StartScreen.ComputeEventsStart.computeKeyboardEvents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verarbeitet Tastertur-Knopf Events</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>event</strong> &#8211; Tastertur-Event, welches aufgetreten ist.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="MVC.StartScreen.ComputeEventsStart.computeMouseEvents">
+<code class="descname">computeMouseEvents</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#MVC.StartScreen.ComputeEventsStart.computeMouseEvents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verarbeitet Maus Events</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>event</strong> &#8211; Maus-Event, welches aufgetreten ist.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MVC.StartScreen.DrawScreenStart">
+<em class="property">class </em><code class="descclassname">MVC.StartScreen.</code><code class="descname">DrawScreenStart</code><span class="sig-paren">(</span><em>screenContent</em><span class="sig-paren">)</span><a class="headerlink" href="#MVC.StartScreen.DrawScreenStart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ist die View-Klasse des StartScreens und beinhaltet die Infos ueber das Display</p>
+<dl class="method">
+<dt id="MVC.StartScreen.DrawScreenStart.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>screenContent</em><span class="sig-paren">)</span><a class="headerlink" href="#MVC.StartScreen.DrawScreenStart.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Konstruktor</p>
+<p>Setzt Fenstergröße und Titel;
+Laedt Hintergrundbild (Splashscreen)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>screenContent</strong> &#8211; Das Objekt des aktuellen Inhaltes des Fensters.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="MVC.StartScreen.DrawScreenStart.drawButtons">
+<code class="descname">drawButtons</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MVC.StartScreen.DrawScreenStart.drawButtons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Methode zum Zeichhen von Buttons.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MVC.StartScreen.DrawScreenStart.drawContent">
+<code class="descname">drawContent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MVC.StartScreen.DrawScreenStart.drawContent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Methode zum Zeichhen vom Inhalt des Fensters.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MVC.StartScreen.ScreenStart">
+<em class="property">class </em><code class="descclassname">MVC.StartScreen.</code><code class="descname">ScreenStart</code><a class="headerlink" href="#MVC.StartScreen.ScreenStart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Model-Klasse des StartScreen</p>
+<dl class="method">
+<dt id="MVC.StartScreen.ScreenStart.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MVC.StartScreen.ScreenStart.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Konstruktor</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MVC.StartScreen.ScreenStart.getObjects">
+<code class="descname">getObjects</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MVC.StartScreen.ScreenStart.getObjects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Liefert alle Planeten, die der derzeitige Screen beinhaltet, zurueck</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">objects[]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="mvc-planetenscreen">
+<h2>MVC PlanetenScreen<a class="headerlink" href="#mvc-planetenscreen" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="MVC.PlanetenScreen.ComputeEventsPlanets">
+<em class="property">class </em><code class="descclassname">MVC.PlanetenScreen.</code><code class="descname">ComputeEventsPlanets</code><a class="headerlink" href="#MVC.PlanetenScreen.ComputeEventsPlanets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ist die Controller-Klasse des MVCs und ruft die DrawFunction und die Strategien immer wieder auf;
+Verarbeitet außerdem die Eingaben</p>
+<dl class="method">
+<dt id="MVC.PlanetenScreen.ComputeEventsPlanets.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MVC.PlanetenScreen.ComputeEventsPlanets.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialisieren aller Attribute</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">nichts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="MVC.PlanetenScreen.ComputeEventsPlanets.computeKeyboardEvents">
+<code class="descname">computeKeyboardEvents</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#MVC.PlanetenScreen.ComputeEventsPlanets.computeKeyboardEvents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verarbeitet die Keyboard-Events</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Nichts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="MVC.PlanetenScreen.ComputeEventsPlanets.computeMouseEvents">
+<code class="descname">computeMouseEvents</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#MVC.PlanetenScreen.ComputeEventsPlanets.computeMouseEvents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verarbeitet die Mouse-Events</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Nichts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="MVC.PlanetenScreen.ComputeEventsPlanets.doStrategies">
+<code class="descname">doStrategies</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MVC.PlanetenScreen.ComputeEventsPlanets.doStrategies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wendet die verschiedenen Strategien an</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Nichts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MVC.PlanetenScreen.DrawScreenPlanets">
+<em class="property">class </em><code class="descclassname">MVC.PlanetenScreen.</code><code class="descname">DrawScreenPlanets</code><span class="sig-paren">(</span><em>screenContent</em><span class="sig-paren">)</span><a class="headerlink" href="#MVC.PlanetenScreen.DrawScreenPlanets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ist die View-Klasse des PlanetenScreens und beinhaltet die Infos ueber das Display, und initialisiert dieses</p>
+<dl class="method">
+<dt id="MVC.PlanetenScreen.DrawScreenPlanets.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>screenContent</em><span class="sig-paren">)</span><a class="headerlink" href="#MVC.PlanetenScreen.DrawScreenPlanets.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialisieren aller Attribute</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>screenContent</strong> &#8211; Model-Objekt des MVCs</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Nichts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="MVC.PlanetenScreen.DrawScreenPlanets.drawButtons">
+<code class="descname">drawButtons</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MVC.PlanetenScreen.DrawScreenPlanets.drawButtons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Zeichnen der Buttons</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Nichts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="MVC.PlanetenScreen.DrawScreenPlanets.drawContent">
+<code class="descname">drawContent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MVC.PlanetenScreen.DrawScreenPlanets.drawContent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Zeichnen der Objekte, die in der Model-Klasse gespeichert sind</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Nichts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="MVC.PlanetenScreen.DrawScreenPlanets.setPerspective">
+<code class="descname">setPerspective</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MVC.PlanetenScreen.DrawScreenPlanets.setPerspective" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setzen der Perspektive</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Nichts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="MVC.PlanetenScreen.ScreenPlanets">
+<em class="property">class </em><code class="descclassname">MVC.PlanetenScreen.</code><code class="descname">ScreenPlanets</code><a class="headerlink" href="#MVC.PlanetenScreen.ScreenPlanets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Beinhaltet die Objekte des Planeten-Screens (die Planeten) und die verschiedenen Strategien</p>
+<dl class="method">
+<dt id="MVC.PlanetenScreen.ScreenPlanets.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MVC.PlanetenScreen.ScreenPlanets.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Es werden die Standard-Strategien implemntiert (keine Animation, kein Licht, keine Texturen, Kamera von oben)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Nichts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="MVC.PlanetenScreen.ScreenPlanets.changeAppearence">
+<code class="descname">changeAppearence</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MVC.PlanetenScreen.ScreenPlanets.changeAppearence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ändert die Appearence-Strategie</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Nichts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="MVC.PlanetenScreen.ScreenPlanets.changeCamera">
+<code class="descname">changeCamera</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MVC.PlanetenScreen.ScreenPlanets.changeCamera" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ändert die Kamera-Strategie</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Nichts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="MVC.PlanetenScreen.ScreenPlanets.changeLighting">
+<code class="descname">changeLighting</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MVC.PlanetenScreen.ScreenPlanets.changeLighting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ändert die Belichtungs-Strategie</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Nichts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="MVC.PlanetenScreen.ScreenPlanets.changeMovement">
+<code class="descname">changeMovement</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MVC.PlanetenScreen.ScreenPlanets.changeMovement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ändert die Animations-Strategie ( Animation -&gt; Keine Animation -&gt; ...)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Nichts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="MVC.PlanetenScreen.ScreenPlanets.getObjects">
+<code class="descname">getObjects</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MVC.PlanetenScreen.ScreenPlanets.getObjects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Liefert die Liste mit allen Objekten zurueck</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">objects[]; Liste mit allen Objekten</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="MVC.PlanetenScreen.ScreenPlanets.loadTextures">
+<code class="descname">loadTextures</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MVC.PlanetenScreen.ScreenPlanets.loadTextures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Laden der Texturen, so dass sie nur mehr zugewiesen werden muessen</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Nichts</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">MVC Documentation</a><ul>
+<li><a class="reference internal" href="#interfaces-mvc">Interfaces MVC</a></li>
+<li><a class="reference internal" href="#mvc-startscreen">MVC StartScreen</a></li>
+<li><a class="reference internal" href="#mvc-planetenscreen">MVC PlanetenScreen</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to SolarSystem&#8217;s documentation!</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="documentation_planets.html"
+                        title="next chapter">Planet Documentation</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/documentation_mvc.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="documentation_planets.html" title="Planet Documentation"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to SolarSystem’s documentation!"
+             >previous</a> |</li>
+        <li><a href="index.html">SolarSystem 1.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Daniel Bracher, Martin Suschny.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b2.
+    </div>
+  </body>
+</html>

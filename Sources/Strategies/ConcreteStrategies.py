@@ -20,6 +20,11 @@ class PointLight(ILightingStrategy):
     """
 
     def implementLighting(self):
+        """
+        Erestellen eines Point-Lights
+
+        :return: Nichts
+        """
         zeros = (0.15, 0.15, 0.15, 0.3)
         ones = (1.0, 1.0, 1.0, 0.3)
         half = (0.5, 0.5, 0.5, 0.5)
@@ -51,10 +56,20 @@ class NoAnimation(IMovementStrategy):
     model = None
 
     def __init__(self, model):
+        """
+        Initialisieren aller Attribute
+
+        :param model: Model-Objekt des MVCs
+        """
         self.model = model
 
     def implementMovement(self):
-        self.model.geschw = 0
+        """
+        Deaktivieren der Animation
+
+        :return: Nichts
+        """
+        self.model.geschw = 0 #Geschwinddigkeit auf 0 setzen
 
 class WithAnimation(IMovementStrategy):
     """
@@ -65,10 +80,20 @@ class WithAnimation(IMovementStrategy):
     aufgerufen = None
 
     def __init__(self, model):
+        """
+        Initialisieren aller Attribute
+
+        :param model: Model-Objekt des MVCs
+        """
         self.model = model
-        self.aufgerufen = False
+        self.aufgerufen = False #ob schon einmal aufgerufen
 
     def implementMovement(self):
+        """
+        Aktivieren der Animation
+
+        :return: Nichts
+        """
         if self.aufgerufen is False:
             self.model.geschw = 1
             self.aufgerufen = True
@@ -80,7 +105,12 @@ class NoTexture(IAppearenceStrategy):
     """
 
     def implementAppearence(self):
-        pass
+        """
+        Deaktivieren der Texturen
+
+        :return: Nichts
+        """
+        glDisable(GL_TEXTURE_2D) #Deaktivieren der Texturen
 
 class WithTexture(IAppearenceStrategy):
     """
@@ -89,7 +119,12 @@ class WithTexture(IAppearenceStrategy):
     """
 
     def implementAppearence(self):
-        pass
+        """
+        Aktivieren der Texturen
+
+        :return: Nichts
+        """
+        glEnable(GL_TEXTURE_2D) #Deaktivieren der Texturen
 
 class CamOben(ICameraStrategy):
     """
@@ -98,6 +133,11 @@ class CamOben(ICameraStrategy):
     """
 
     def implementCamera(self):
+        """
+        Kamera schaut von oben auf Planeten
+
+        :return: Nichts
+        """
         glRotatef(90,1,0,0) #drehen des urpsrungs
 
 class CamParallel(ICameraStrategy):
@@ -107,13 +147,23 @@ class CamParallel(ICameraStrategy):
     """
 
     def implementCamera(self):
+        """
+        Kamera schaut parallel zu Planetenbahnen auf Planeten
+
+        :return: Nichts
+        """
         glRotatef(0,1,0,0) #drehen des urpsrungs
 
 class CamSeitlich(ICameraStrategy):
     """
     Implementiert die Klasse ICameraStrategy
-    Bewegungsstrategie: Kamera befindet sich parallel zu den Planetenbahnen
+    Bewegungsstrategie: Kamera befindet sich schräg zu den Planetenbahnen
     """
 
     def implementCamera(self):
+        """
+        Kamera schaut schräg auf Planeten
+
+        :return: Nichts
+        """
         glRotatef(15,1,0,0) #drehen des urpsrungs

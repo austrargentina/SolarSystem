@@ -31,7 +31,7 @@ class IDrawScreen(object, metaclass = ABCMeta):
     def drawContent(self):
         """
         Der Inhalt wird gezeichnet (Hintergrundbild, Planeten, etc.)
-        :return:
+        :return: Nichts
         """
         pass
 
@@ -39,7 +39,7 @@ class IDrawScreen(object, metaclass = ABCMeta):
     def drawButtons(self):
         """
         Falls vorhanden, sollen hier die Buttons gezeichnet werden
-        :return:
+        :return: Nichts
         """
 
 class IScreen(object, metaclass = ABCMeta):

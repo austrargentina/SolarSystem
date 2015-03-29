@@ -118,9 +118,6 @@ class DrawScreenStart(IDrawScreen):
         """
         pygame.Surface.blit(pygame.display.get_surface(),self.bgd_image, [0, 0])
 
-
-
-
 class ScreenStart(IScreen):
     """
         Model-Klasse des StartScreen
@@ -143,4 +140,5 @@ class ScreenStart(IScreen):
         pass
 
 #Main-Launch
-app = ComputeEventsStart()
+if __name__ == '__main__':
+    app = ComputeEventsStart()
