@@ -1,5 +1,3 @@
-from builtins import staticmethod
-
 __author__ = 'Daniel'
 
 #Import der Interfaces
@@ -12,8 +10,6 @@ from Planets.Planets import *
 #Import der relevanten Klassen fuer Pygame und PyOpenGL
 import pygame
 from pygame.locals import *
-from OpenGL.GL import *
-from OpenGL.GLU import *
 
 #Importieren der Library für die Texturen
 from pyglet import image

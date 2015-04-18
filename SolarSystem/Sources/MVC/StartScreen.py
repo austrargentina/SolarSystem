@@ -4,9 +4,6 @@ __author__ = 'Martin'
 
 #Import der relevanten Klassen fuer Pygame und PyOpenGL
 import pygame
-from pygame.locals import *
-from OpenGL.GL import *
-from OpenGL.GLU import *
 
 from MVC.AbstractMVC import *
 
